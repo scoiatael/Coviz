@@ -40,8 +40,8 @@ class Simulation(object):
         self.frames.append(self.dump())
 
     def simulate(self):
-        current_recovery_chance = self.recovery_chance()
         for t in tqdm(range(self.simulation_length)):
+            current_recovery_chance = self.recovery_chance()
             contacts = []
             for (i, p) in enumerate(self.people):
                 p.tick(recovery_chance=current_recovery_chance)
